@@ -829,17 +829,17 @@ id,identifier,weight,generation
 828,vikavolt,450,7
 829,crabrawler,70,7
 830,crabominable,1800,7
-831,oricorio-baile ,34,7
-832,oricorio-pa'u ,34,7
-833,oricorio-sensu ,34,7
-834,oricorio-pom-pom ,34,7
+831,oricorio-baile,34,7
+832,oricorio-pa'u,34,7
+833,oricorio-sensu,34,7
+834,oricorio-pom-pom,34,7
 835,cutiefly,2,7
 836,ribombee,5,7
 837,rockruff,92,7
 838,lycanroc-midday,250,7
-839,lycanroc-midnight ,250,7
-840,wishiwashi-solo ,3,7
-841,wishiwashi-school ,786,7
+839,lycanroc-midnight,250,7
+840,wishiwashi-solo,3,7
+841,wishiwashi-school,786,7
 842,mareanie,80,7
 843,toxapex,145,7
 844,mudbray,1100,7
@@ -865,10 +865,10 @@ id,identifier,weight,generation
 864,sandygast,700,7
 865,palossand,2500,7
 866,pyukumuku,12,7
-867,type: null,1205,7
+867,type-null,1205,7
 868,silvally,1005,7
-869,minior-meteor ,400,7
-870,minior-core ,3,7
+869,minior-meteor,400,7
+870,minior-core,3,7
 871,komala,199,7
 872,turtonator,2120,7
 873,togedemaru,33,7
@@ -879,10 +879,10 @@ id,identifier,weight,generation
 878,jangmo-o,297,7
 879,hakamo-o,470,7
 880,kommo-o,782,7
-881,tapu koko,205,7
-882,tapu lele,186,7
-883,tapu bulu,455,7
-884,tapu fini,212,7
+881,tapu-koko,205,7
+882,tapu-lele,186,7
+883,tapu-bulu,455,7
+884,tapu-fini,212,7
 885,cosmog,1,7
 886,cosmoem,9999,7
 887,solgaleo,2300,7
