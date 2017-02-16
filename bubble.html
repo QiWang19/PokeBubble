@@ -1,0 +1,169 @@
+<html>
+    <head>
+    </head>
+    <style>
+        text {
+            font: 10px sans-serif;
+            text-anchor: middle;
+        }
+
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            width: 120px;
+            height: 33px;
+            padding: 8px;
+            font: 10px sans-serif;
+            /*background: #ddd;*/
+            /*border: solid 1px #aaa;*/
+            border-radius: 8px;
+            pointer-events: none;
+        }
+    </style>
+    <svg width="3000" height="3000"></svg>
+    <body>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script>
+            var svg = d3.select("svg"),
+                width = +svg.attr("width");
+
+            var div = d3.select("body").append("div")
+                    .attr("class", "tooltip")
+                    .style("opacity", .25);
+
+            function mouseover() {
+            div.transition()
+                .duration(500)
+                .style("opacity", 1);
+            }
+
+            function mousemove() {
+            div
+                .html("<span style='color:red'><ahref='http://en.wikipedia.org/wiki/Tombouctou_Region'><img src='http://upload.wikimedia.org/wikipedia/commons/b/b3/Mali_Tombouctou.png' ></ahref></span> <span style='color:blue'><h2>Mali !!!!!!! </h2></span>")
+            //.html("<span style='color:red'><h1>Tombouctou Region</h1><br><ahref='http://en.wikipedia.org/wiki/Tombouctou_Region'><img src='http://upload.wikimedia.org/wikipedia/commons/b/b3/Mali_Tombouctou.png'></ahref></span> <span style='color:blue'><h2>Mali !!!!!!! </h2></span>")
+                .style("left", (d3.event.pageX + 34) + "px" )
+                .style("top", (d3.event.pageY + 12) + "px" );
+            }
+
+            function mouseout() {
+            div.transition()
+                .duration(50)
+                .style("opacity", 1e-6);
+            }
+            //var format = d3.format(",d");
+            var h = [];
+            var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+            var pack = d3.pack()
+                .size([width, width])
+                .padding(10.5);
+
+
+            d3.csv("Pokeweight1.csv", function(d) {
+                d.weight = +d.weight;
+            
+                if (d.weight) return d;
+            }, function(error, classes) {
+                if (error) throw error;
+                var root = d3.hierarchy({children: classes})
+                    .sum(function(d) { return d.weight; })
+                    .each(function(d) {
+                        if (id = d.data.id) {
+                        var id; //, i = id.lastIndexOf(".");
+                        d.id = id;
+                        d.package = d.data.generation;
+                        d.class = d.data.identifier;
+                        //console.log(d.data.identifier);
+                        h.push("https://"+"img.pokemondb.net/artwork/"+d.data.identifier+".jpg")
+                        //console.log(h[1]);
+                        }
+                    });
+
+                var node = svg.selectAll(".node")
+                    .data(pack(root).leaves())
+                    .enter().append("g")
+                    //.attr("id", d.id)
+                    .attr("class", "node")
+                    //.attr("href", "#")
+                    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+                node.append("circle")
+                    .attr("id", function(d) { return d.id; })
+                    .attr("r", function(d) { return d.r; })
+                    .on("mouseover", mouseover)
+                    .on("mousemove", function(d) {
+                        div
+                            .html("<span style='color:red'><img src="+h[d.id]+" width = '520px' height = '520px'></span> <span style='color:blue'><h2>Mali !!!!!!! </h2></span>")
+                        //.html("<span style='color:red'><h1>Tombouctou Region</h1><br><ahref='http://en.wikipedia.org/wiki/Tombouctou_Region'><img src='http://upload.wikimedia.org/wikipedia/commons/b/b3/Mali_Tombouctou.png'></ahref></span> <span style='color:blue'><h2>Mali !!!!!!! </h2></span>")
+                            .style("left", (d3.event.pageX + 34) + "px" )
+                            .style("top", (d3.event.pageY + 12) + "px" );
+                    })
+                    .on("mouseout", mouseout)
+                    //   .attr("href", "#")
+                    //   .attr("class", "showTip L1")
+                    .style("fill", function(d) { return color(d.package); });
+                    
+                //   node.append("image")
+                //      .attr("class", function(d) {
+                //          return "node" + d.id
+                //      })
+                //      .attr("xlink:herf", "https://img.pokemondb.net/artwork/kommo-o.jpg")
+                //      .attr("width", "20px")
+                //      .attr("height", "20px");
+
+                node.append("clipPath")
+                    .attr("id", function(d) { return "clip-" + d.id; })
+                    .append("use")
+                    .attr("xlink:href", function(d) { return "#" + d.id; });
+
+                node.on("mouseover", function(d) {
+                        console.log(d.id);
+                        // node.enter().append("image")
+                        //    .attr("class", function (d) {
+                        //        return "node " + d.id;
+                        //        })
+                        //    .attr("xlink:href", "https://github.com/favicon.ico")
+                        //    .attr("width", "16px")
+                        //    .attr("height", "16px");
+                        // d3.select(".molecule").append("img")
+                        //     .attr("src", "https://github.com/favicon.ico");
+
+                        // node.append("svg:image")
+                        //     .attr("class", "circle")
+                        //     .attr("xlink:href", "https://github.com/favicon.ico")
+                        //     .attr("x", "-8px")
+                        //     .attr("y", "-8px")
+                        //     .attr("width", "16px")
+                        //     .attr("height", "16px");
+                    //   function tick() {
+                    //     node.attr("x", function (d) {
+                    //         //console.log(d.x);
+                    //         return d.x;
+                    //     })
+                    //         .attr("y", function (d) {
+                    //         return d.y;
+                    //     })
+                    //   }
+                    //   tick();
+
+                    
+                    
+                });
+                
+                
+                //   node.append("text")
+                //       .attr("clip-path", function(d) { return "url(#clip-" + d.id + ")"; })
+                //     .selectAll("tspan")
+                //     .data(function(d) { return d.class.split(/(?=[A-Z][^A-Z])/g); })
+                //     .enter().append("tspan")
+                //       .attr("x", 0)
+                //       .attr("y", function(d, i, nodes) { return 13 + (i - nodes.length / 2 - 0.5) * 10; })
+                //       .text(function(d) { return d; });
+
+                // node.append("title")
+                //     .text(function(d) { return d.id + "\n" + format(d.value); });
+            
+            });
+        </script>
+    </body>
+</html>
