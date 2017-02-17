@@ -37,13 +37,6 @@
                     .style("opacity", 1);
             }
 
-            function mousemove() {
-                div
-                    .html("<span style='color:red'><ahref='http://en.wikipedia.org/wiki/Tombouctou_Region'><img src='http://upload.wikimedia.org/wikipedia/commons/b/b3/Mali_Tombouctou.png' ></ahref></span> <span style='color:blue'><h2>Mali !!!!!!! </h2></span>")
-                //.html("<span style='color:red'><h1>Tombouctou Region</h1><br><ahref='http://en.wikipedia.org/wiki/Tombouctou_Region'><img src='http://upload.wikimedia.org/wikipedia/commons/b/b3/Mali_Tombouctou.png'></ahref></span> <span style='color:blue'><h2>Mali !!!!!!! </h2></span>")
-                    .style("left", (d3.event.pageX + 34) + "px" )
-                    .style("top", (d3.event.pageY + 12) + "px" );
-            }
 
             function mouseout() {
                 div.transition()
@@ -69,23 +62,19 @@
                     .sum(function(d) { return d.weight; })
                     .each(function(d) {
                         if (id = d.data.id) {
-                        var id; //, i = id.lastIndexOf(".");
-                        d.id = id;
-                        d.package = d.data.generation;
-                        d.class = d.data.identifier;
+                            var id; //, i = id.lastIndexOf(".");
+                            d.id = id;
+                            d.package = d.data.generation;
+                            d.class = d.data.identifier;
                         //console.log(d.data.identifier);
-                        if (d.data.webid.slice(0,4) == "http") {
-                            console.log("dengyu");
-                            h.push(d.data.webid);
-                        } else {
-                            h.push("http://"+"pokeunlock.com/wp-content/uploads/2015/01/"+d.data.webid+".png");
-                        }
-                        
-                                
-                        //console.log(h[1]);
+                            if (d.data.webid.slice(0,4) == "http") {
+                                console.log("dengyu");
+                                h.push(d.data.webid);
+                            } else {
+                                h.push("http://"+"pokeunlock.com/wp-content/uploads/2015/01/"+d.data.webid+".png");
+                            }
                         }
                     });
-                //console.log(h);    
                 var node = svg.selectAll(".node")
                     .data(pack(root).leaves())
                     .enter().append("g")
@@ -99,7 +88,6 @@
                     .attr("r", function(d) { return d.r; })
                     .on("mouseover", mouseover)
                     .on("mousemove", function(d) {
-                        
                         console.log(d.id, h[d.id]);
                         div
                             //.html("<span style='color:red'><img src='http://pokeunlock.com/wp-content/uploads/2015/01/001.png' width = '520px' height = '520px'></span> <span style='color:blue'><h2>Mali !!!!!!! </h2></span>")
@@ -109,70 +97,13 @@
                             .style("top", (d3.event.pageY + 12) + "px" );
                     })
                     .on("mouseout", mouseout)
-                    //   .attr("href", "#")
-                    //   .attr("class", "showTip L1")
                     .style("fill", function(d) { return color(d.package); });
-                    
-                //   node.append("image")
-                //      .attr("class", function(d) {
-                //          return "node" + d.id
-                //      })
-                //      .attr("xlink:herf", "https://img.pokemondb.net/artwork/kommo-o.jpg")
-                //      .attr("width", "20px")
-                //      .attr("height", "20px");
 
                 node.append("clipPath")
                     .attr("id", function(d) { return "clip-" + d.id; })
                     .append("use")
                     .attr("xlink:href", function(d) { return "#" + d.id; });
 
-                node.on("mouseover", function(d) {
-                        //console.log(d.data.webid);
-                        // node.enter().append("image")
-                        //    .attr("class", function (d) {
-                        //        return "node " + d.id;
-                        //        })
-                        //    .attr("xlink:href", "https://github.com/favicon.ico")
-                        //    .attr("width", "16px")
-                        //    .attr("height", "16px");
-                        // d3.select(".molecule").append("img")
-                        //     .attr("src", "https://github.com/favicon.ico");
-
-                        // node.append("svg:image")
-                        //     .attr("class", "circle")
-                        //     .attr("xlink:href", "https://github.com/favicon.ico")
-                        //     .attr("x", "-8px")
-                        //     .attr("y", "-8px")
-                        //     .attr("width", "16px")
-                        //     .attr("height", "16px");
-                    //   function tick() {
-                    //     node.attr("x", function (d) {
-                    //         //console.log(d.x);
-                    //         return d.x;
-                    //     })
-                    //         .attr("y", function (d) {
-                    //         return d.y;
-                    //     })
-                    //   }
-                    //   tick();
-
-                    
-                    
-                });
-                
-                
-                // node.append("text")
-                //       .attr("clip-path", function(d) { return "url(#clip-" + d.id + ")"; })
-                //     .selectAll("tspan")
-                //     .data(function(d) { return d.id; })
-                //     .enter().append("tspan")
-                //       .attr("x", 0)
-                //       .attr("y", function(d, i, nodes) { return 13 + (i - nodes.length / 2 - 0.5) * 10; })
-                //       .text(function(d) { return d; });
-
-                // node.append("title")
-                //     .text(function(d) { return d.id + "\n" + format(d.value); });
-            
             });
         </script>
     </body>
