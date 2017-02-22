@@ -63,7 +63,7 @@
                 if (error) throw error;
                 var root = d3.hierarchy({children: classes})
                     .sum(function(d) { return d.weight; })
-                    .sort(function(a, b) { return b.value - a.value;})
+                    
                     .each(function(d) {
                         if (id = d.data.id) {
                             var id; //, i = id.lastIndexOf(".");
@@ -73,12 +73,18 @@
                         //console.log(d.data.identifier);
                             if (d.data.webid.slice(0,4) == "http") {
                                 console.log("dengyu");
+                                console.log(d.id);
                                 h.push(d.data.webid);
+                                //h[d.id] = d.data.webid;
                             } else {
+                                console.log(d.id);
                                 h.push("http://"+"pokeunlock.com/wp-content/uploads/2015/01/"+d.data.webid+".png");
+                                //h[d.id] = "http://"+"pokeunlock.com/wp-content/uploads/2015/01/"+d.data.webid+".png";
                             }
                         }
-                    });
+                    })
+                    .sort(function(a, b) { return b.value - a.value;});
+                console.log(h);
                 var focus = root;
                 //var margin = 20, 
                 var    view;
@@ -88,7 +94,7 @@
                     //.attr("id", d.id)
                     .attr("class", "node")
                     //.attr("href", "#")
-                    //.attr("transform", function(d) { return "translate(" + d.x  + "," + d.y  + ")"; });
+                    .attr("transform", function(d) { return "translate(" + d.x  + "," + d.y  + ")"; });
 
                 node.append("circle")
                     .attr("id", function(d) { return d.id; })
@@ -104,59 +110,67 @@
                             .style("top", (d3.event.pageY + 12) + "px" );
                     })
                     .on("mouseout", mouseout)
-                    .on("click", function(d) {
-                        if (focus !== d) 
-                            zoom(d)
-                            d3.event.stopPropagation();
-                    })
+                    // .on("click", function(d) {
+                    //     if (focus !== d) 
+                    //         zoom(d)
+                    //         d3.event.stopPropagation();
+                    // })
                     .style("fill", function(d) { return color(d.package); });
 
                 node.append("clipPath")
                     .attr("id", function(d) { return "clip-" + d.id; })
                     .append("use")
                     .attr("xlink:href", function(d) { return "#" + d.id; });
-                svg
-                    .on("click", function() { zoom(root);});
-                zoomTo([root.x, root.y, root.r * 2 ]);
-                console.log(root.x, root.y, root.r * 2 );
-                
-                function zoom(d) {
-                    var focus0 = focus;
-                    focus = d;
 
-                    var transition = d3.transition()
-                        .duration(d3.event.altKey ? 7500 : 750)
-                        .tween("zoom", function(d) {
-                            var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 ]);
-                            console.log(view);
-                            return function(t) { 
-                                console.log(t);
-                                zoomTo(i(t));};
-                        })
-                }
+                node.append("text")
+                    .text(function(d) { return d.id});
+                // svg
+                //     .on("click", function() { zoom(root);});
+                // zoomTo([root.x, root.y, root.r * 2 ]);
+                // //console.log(root.x, root.y, root.r * 2 );
+                // var force = d3.layout.force()
+                //     .nodes(node)
+                //     .size([width/2, width/2])
+                //     .gravity(.02)
+                //     .charhe(0)
+                //     .start();
+                // function zoom(d) {
+                //     var focus0 = focus;
+                //     focus = d;
 
-                function zoomTo(v) {
+                //     var transition = d3.transition()
+                //         .duration(d3.event.altKey ? 7500 : 750)
+                //         .tween("zoom", function(d) {
+                //             var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 ]);
+                //             console.log(view);
+                //             return function(t) { 
+                //                 console.log(t);
+                //                 zoomTo(i(t));};
+                //         })
+                // }
+
+                // function zoomTo(v) {
                     
-                    var circle = svg.selectAll(".node").select("circle")
-                    console.log(v);
-                    var diameter = width;
-                    var k = diameter / v[2]; view = v;
-                    node.attr("transform", function(d) {
-                        //if (d == root) {
-                            return "translate(" + d.x + "," + d.y  + ")"; 
-                        // } else {
-                        //     return "translate(" + (d.x - v[0]) *k  + "," + (d.y - v[1]) *k  + ")";
-                        // }
+                //     var circle = svg.selectAll(".node").select("circle")
+                //     console.log(v);
+                //     var diameter = width;
+                //     var k = diameter / v[2]; view = v;
+                //     node.attr("transform", function(d) {
+                //         //if (d == root) {
+                //             return "translate(" + d.x + "," + d.y  + ")"; 
+                //         // } else {
+                //         //     return "translate(" + (d.x - v[0]) *k  + "," + (d.y - v[1]) *k  + ")";
+                //         // }
                          
-                        //return "translate(" + (d.x - v[0]) *k  + "," + (d.y - v[1]) *k  + ")";
-                    circle.attr("r", function(d) {
-                        return d.r * k;
-                        });
-                    });
-                    //var circle = svg.selectAll(".node").select("circle")
+                //         //return "translate(" + (d.x - v[0]) *k  + "," + (d.y - v[1]) *k  + ")";
+                //     circle.attr("r", function(d) {
+                //         return d.r * k;
+                //         });
+                //     });
+                //     //var circle = svg.selectAll(".node").select("circle")
 
                     
-                }
+                // }
 
             });
         </script>
