@@ -3053,7 +3053,7 @@
 			-moz-transition: -moz-transform 20s ease, opacity 2s ease;
 			-webkit-transition: -webkit-transform 20s ease, opacity 2s ease;
 			-ms-transition: -ms-transform 20s ease, opacity 2s ease;
-			transition: transform 2s ease, opacity 2s ease;
+			transition: transform 8s ease, opacity 2s ease;
 			background: rgba(23, 24, 32, 0.95);
 			border-style: solid;
 			opacity: 1;
