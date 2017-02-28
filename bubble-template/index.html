@@ -19,14 +19,14 @@
 
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="index.html">Landed</a></h1>
+					<!--<h1 id="logo"><a href="index.html">Landed</a></h1>-->
 					<nav id="nav">
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<!--<li><a href="index.html">Home</a></li>-->
 							<li>
-								<a href="#">Layouts</a>
+								<!--<a href="#">Layouts</a>-->
 								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
+									<!--<li><a href="left-sidebar.html">Left Sidebar</a></li>
 									<li><a href="right-sidebar.html">Right Sidebar</a></li>
 									<li><a href="no-sidebar.html">No Sidebar</a></li>
 									<li>
@@ -35,13 +35,13 @@
 											<li><a href="#">Option 1</a></li>
 											<li><a href="#">Option 2</a></li>
 											<li><a href="#">Option 3</a></li>
-											<li><a href="#">Option 4</a></li>
+											<li><a href="#">Option 4</a></li>-->
 										</ul>
 									</li>
 								</ul>
 							</li>
-							<li><a href="elements.html">Elements</a></li>
-							<li><a href="#" class="button special">Sign Up</a></li>
+							<!--<li><a href="elements.html">Elements</a></li>
+							<li><a href="#" class="button special">Sign Up</a></li>-->
 						</ul>
 					</nav>
 				</header>
@@ -61,9 +61,10 @@
 
 			<!-- One -->
 				<section id="one" class="spotlight style1 bottom">
-					<span class="image fit main"><img src="images/pic02.jpg" alt="" />
+					<!--<span class="image fit main"><img src="images/pic02.jpg" alt="" />-->
 					 	<!--<svg id = 'bubblechart' width="840" height="560" transform="translate(100 300)">-->
-					</span>
+					<!--</span>-->
+					<svg id='stackbar' class="stackbar" width="980" height="500"></svg>
 					<div class="content">
 						<div class="container">
 							<div class="row">
@@ -95,8 +96,19 @@
 				</section>
 
 			<!-- Two -->
-				<section id="two" class="spotlight style2 right">
-					<span class="image fit main"><img src="images/pic03.jpg" alt="" /></span>
+				<section id="two" class="spotlight style2 right" >
+					<!--<span class="image fit main"><img src="images/pic03.jpg" alt="" /></span>-->
+					<div id='input' >
+						<form id='radarform' method="post" action="javascript:radarAdd()" >
+						<input id='box' style="width:200px" type='text' list='pokemons' placeholder='Enter Pokemon' data-list-filter="^">
+						<datalist id='pokemons'>
+						</datalist>
+						<button id='Add' type="button" value="Add">Add</button>
+						<button id='Clear' type="button" value="Clear">Clear</button>
+						</form>
+					</div>
+					<div id = 'radarchart'>
+					</div>
 					<div class="content">
 						<header>
 							<h2>Interdum amet non magna accumsan</h2>
@@ -114,16 +126,23 @@
 				<section id="three" class="spotlight style3 left"  align="right">
 					<!--<span class="image fit main bottom"><img src="images/pic04.jpg" alt="" /></span>-->
 					<!--<div class="image fit main bottom" align="right">-->
-					<span height = "20px"></span>
-									<svg id = 'bubblechart' class="bubble" width="840" height="560" ></svg>
+					<!--<span height = "20px"></span>-->
+					<svg id = 'bubblechart' class="bubble" width="840" height="560" ></svg>
 									<!--<div id="bobdiv"></div>-->
 					<!--</div>-->
 					<div class="content">
 						<header>
-							<h2>Interdum felis blandit praesent sed augue</h2>
-							<p>Accumsan integer ultricies aliquam vel massa sapien phasellus</p>
+							<!--<h2>Interdum felis blandit praesent sed augue</h2>-->
+							<h2>Weight of Pokémon varies with generation</h2> 
+							<!--<p>Accumsan integer ultricies aliquam vel massa sapien phasellus</p>-->
+							<p>Heavier Pokémon seems to be stronger. How do they perform in the game? </p>
 						</header>
-						<p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
+						<!--<p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>-->
+						<p>There are more heavy Pokémon in recent generations.
+							Most of the heavy Pokémon are in generation 7 (orange bubbles).
+Most of the light Pokémon are in generation 1 (blue bubbles).
+</p>
+
 						<ul class="actions">
 							<li><a href="#" class="button">Learn More</a></li>
 						</ul>
@@ -133,7 +152,7 @@
 
 			<!-- Four -->
 				<section id="four" class="wrapper style1 special fade-up">
-					<div class="container">
+					<!--<div class="container">
 						<header class="major">
 							<h2>Accumsan sed tempus adipiscing blandit</h2>
 							<p>Iaculis ac volutpat vis non enim gravida nisi faucibus posuere arcu consequat</p>
@@ -177,12 +196,12 @@
 								<li><a href="#" class="button">Magna sed feugiat</a></li>
 							</ul>
 						</footer>
-					</div>
+					</div>-->
 				</section>
 
 			<!-- Five -->
 				<section id="five" class="wrapper style2 special fade">
-					<div class="container">
+					<!--<div class="container">
 						<header>
 							<h2>Magna faucibus lorem diam</h2>
 							<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>
@@ -193,18 +212,18 @@
 								<div class="4u$ 12u$(xsmall)"><input type="submit" value="Get Started" class="fit special" /></div>
 							</div>
 						</form>
-					</div>
+					</div>-->
 				</section>
 
 			<!-- Footer -->
 				<footer id="footer">
 					<ul class="icons">
-						<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<!--<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
 						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
 						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
 						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>-->
 					</ul>
 					<ul class="copyright">
 						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
@@ -222,112 +241,106 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+			<script src="https://afarkas.github.io/webshim/js-webshim/minified/polyfiller.js"></script>
 			<script src="https://d3js.org/d3.v4.min.js"></script>
+			<script src="RadarChart.js"></script>
+			<script src="bubblepack.js"></script>
+			
+			<script src="Radar.js"></script>
 			<script>
-				var svg = d3.select("#bubblechart"),
-				width = +svg.attr("width");
+			var tooltip = d3.select("body").append("div").attr("class", "toolTip").attr('id','stackbartoolTip');
+var svg = d3.select("#stackbar"),
+    margin = {top: 20, right: 80, bottom: 30, left: 40},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-				var div = d3.select("body").append("div")
-						.attr("class", "tooltip")
-						.style("opacity", .25);
+var x = d3.scaleBand()
+    .rangeRound([0, width])
+    .padding(0.1)
+    .align(0.1);
 
-				function mouseover() {
-					div.transition()
-						.duration(500)
-						.style("opacity", 1).style("display", "inline-block");
-				}
+var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
 
+var z = d3.scaleOrdinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-				function mouseout() {
-					div.transition()
-						.duration(50).style("display", "none");
-				}
+var colortogen = {"#98abc5":'1', "#8a89a6":'2', "#7b6888":'3', "#6b486b":'4', "#a05d56":'5', "#d0743c":'6', "#ff8c00":'7'}
 
+var stack = d3.stack()
+    .offset(d3.stackOffsetExpand);
 
-				var h = [];
-				//var color = d3.scaleOrdinal(d3.schemeCategory20);
-				var color = d3.scaleOrdinal()
-										.range(["#ff8c00","#7b6888", "#6b486b","#8a89a6","#d0743c", "#98abc5", "#a05d56"]);
-							//generation7, generation3,g4, g2, g6, g1, g5
-				var pack = d3.pack()
-					.size([width * 3/5, width * 3 /5])
-					.padding(1.5);
+d3.csv("norStackData.csv", type, function(error, data) {
+  if (error) throw error;
 
+  data.sort(function(a, b) { return a[data.columns[1]] / a.total - b[data.columns[1]] / b.total; });
 
-					
-				d3.csv("Pokeweight1-1.csv", function(d) {
-					d.weight = +d.weight;
+  x.domain(data.map(function(d) { return d.type; }));
+  z.domain(data.columns.slice(1));
 
-					if (d.weight) return d;
-				}, function(error, classes) {
-					if (error) throw error;
-					var root = d3.hierarchy({children: classes})
-						.sum(function(d) { return d.weight; })
-						.each(function(d) {
-							if (id = d.data.id) {
-								var id; 
-								d.id = id;
-								d.package = d.data.generation;
-								d.class = d.data.identifier;
-								if (d.data.webid.slice(0,4) == "http") {
-									//console.log("dengyu");
-									h.push(d.data.webid);
-								} else {
-									h.push("http://"+"pokeunlock.com/wp-content/uploads/2015/01/"+d.data.webid+".png");
-								}
-							}
-						})
-						.sort(function(a, b) { return b.value - a.value;});
-					var focus = root;
-					var    view;
-					var node = svg.selectAll(".node")
-						.data(pack(root).leaves())
-						.enter().append("g")
-						.attr("class", "node")
-						.attr("transform", function(d) { return "translate(" + d.x  + "," + (d.y + 20) + ")"; });
+  var serie = g.selectAll(".serie")
+    .data(stack.keys(data.columns.slice(1))(data))
+    .enter().append("g")
+      .attr("class", "serie")
+      .attr("fill", function(d) { return z(d.key); });
 
-					node.append("circle")
-						.attr("id", function(d) { return d.id; })
-						.attr("r", function(d) { return d.r; })
-						.on("mouseover", mouseover)
-						.on("mousemove", function(d) {
-							//console.log(d.id, h[d.id]);
-							div
-								.html("<span style='color:red; z-index: 2'><img src="+h[d.id]+" width = '120px' height = '120px'></span> <span style='-webkit-text-stroke: 2.5px #000000;color: white;font-weight: 900'><font size = '6' >"+ d.data.identifier +"</font></span>")
-								.style("left", (d3.event.pageX + 32) + "px" )
-								.style("top", (d3.event.pageY + 20) + "px" );
-						})
-						.on("mouseout", mouseout)
-						.style("fill", function(d) { return color(d.package); });
+  var tooltip = d3.select("body").append("div").attr("class", "StacktoolTip").attr("style", "z-index: 30");
+	  
+  serie.selectAll("rect")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.data.type); })
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x.bandwidth())
+	  .on("mouseover", function(d,i) {
+                  tooltip
+                        .style("left", d3.event.pageX - 95 + "px")
+                        .style("top", d3.event.pageY - 90 + "px")
+                        .style("display", "inline-block")
+                        .html("<font>"+"Generation: " + colortogen[this.parentNode.getAttribute('fill')] + "<br>Type: "+d.data.type+"<br>"+"Number of Pokemon: "+ Math.round((d[1] - d[0])*d.data.total) + "</font>" );
+              }) 
+      .on("mouseout", function(d) {
+                  tooltip.style("display", "none");});
 
-					node.append("clipPath")
-						.attr("id", function(d) { return "clip-" + d.id; })
-						.append("use")
-						.attr("xlink:href", function(d) { return "#" + d.id; });
-					var colorArray = ["#98abc5","#8a89a6", "7b6888","#6b486b","#a05d56", "#d0743c", "#ff8c00"]; 
-					var legend = svg.selectAll(".legend")
-						.data(colorArray)
-						.enter().append("g")
-						.attr("class", "legend")
-							.attr("transform", function(d, i) {
-									return "translate(" +(width * 7 / 11 ) + "," + (70 + i * 20)+ ")";
-								});
-						legend.append("circle")
-								.attr("r", 6)
-								.style("fill", function(d) {
-									return d;
-								});
-						legend.append("text")
-							.attr("dy", ".25em")
-							.attr("dx", "4em")
-							.attr("fill","rgba(255, 255, 255, 0.75)")
-							.text(function(d, i) {
-								return "generation " + (i + 1);
-							});
-						
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + (1.5*height) + ")")
+      .call(d3.axisBottom(x))
+      .selectAll("text").style('font-size',10);
 
-				});
+  g.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y).ticks(10, "%"))
+      .selectAll("text").style('font-size',12);
+
+  var legend = serie.append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d) { var d = d[d.length - 1]; return "translate(" + (x(d.data.type) + x.bandwidth()) + "," + ((y(d[0]) + y(d[1])) / 2) + ")"; });
+
+  legend.append("line")
+      .attr("x1", -6)
+      .attr("x2", 6)
+      .attr("stroke", "#000");
+
+  legend.append("text")
+      .attr("x", 9)
+      .attr("dy", "0.35em")
+      .attr("fill", "#000")
+      .style("font", "10px sans-serif")
+      .text(function(d) { return 'Generation ' + d.key.split('gen')[1]; });
+});
+
+function type(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+}
 			</script>
-
+			
+			
 	</body>
 </html>
