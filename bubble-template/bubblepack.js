@@ -58,7 +58,7 @@ var svgB = d3.select("#bubblechart"),
 						.data(pack(root).leaves())
 						.enter().append("g")
 						.attr("class", "node")
-						.attr("transform", function(d) { return "translate(" + d.x  + "," + (d.y + 20) + ")"; });
+						.attr("transform", function(d) { return "translate(" + (d.x+12)  + "," + (d.y + 10) + ")"; });
 
 					node.append("circle")
 						.attr("id", function(d) { return d.id; })

@@ -50,17 +50,17 @@
 				<section id="banner">
 					<div class="content">
 						<header>
-							<h2>The future has landed</h2>
-							<p>And there are no hoverboards or flying cars.<br />
-							Just apps. Lots of mother flipping apps.</p>
+							<h2>Pokémon Visualization</h2>
+							<h3>Team: Max Levine, Yuchen Liu, Qi Wang</h3>
+							<h4>Recently, many player of Pokémon Go saw a Pokémon Go second Generation Release update. In the game, there exist a lot of second generation Pokémons. So what’s the difference between different generations?</h4>
 						</header>
-						<span class="image"><img src="images/pic01.jpg" alt="" /></span>
+						<span class="image"><img src="images/img-1.png" alt="" /></span>
 					</div>
 					<a href="#one" class="goto-next scrolly">Next</a>
 				</section>
 
 			<!-- One -->
-				<section id="one" class="spotlight style1 bottom">
+				<section id="one" align = "center" class="spotlight style1 bottom">
 					<!--<span class="image fit main"><img src="images/pic02.jpg" alt="" />-->
 					 	<!--<svg id = 'bubblechart' width="840" height="560" transform="translate(100 300)">-->
 					<!--</span>-->
@@ -70,24 +70,20 @@
 							<div class="row">
 								<div class="4u 12u$(medium)">
 									<header>
-										<h2>Odio faucibus ipsum integer consequat</h2>
-										<p>Nascetur eu nibh vestibulum amet gravida nascetur praesent</p>
+										<h2>Normalized type distribution</h2>
 									</header>
 								</div>
 								<div class="4u 12u$(medium)">
-									<p>Feugiat accumsan lorem eu ac lorem amet sed accumsan donec.
-									Blandit orci porttitor semper. Arcu phasellus tortor enim mi
-									nisi praesent dolor adipiscing. Integer mi sed nascetur cep aliquet
-									augue varius tempus lobortis porttitor accumsan consequat
-									adipiscing lorem dolor.</p>
+									<p>As for the primary type distribution, 
+									we visualized them in the below normalized stack bar chart.
+									If user mouse over a certain bar, a tooltip will show the generation, type and population information. </p>
 								</div>
 								
 								<div class="4u$ 12u$(medium)">
-									<p>Morbi enim nascetur et placerat lorem sed iaculis neque ante
-									adipiscing adipiscing metus massa. Blandit orci porttitor semper.
-									Arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer
-									mi sed nascetur cep aliquet augue varius tempus. Feugiat lorem
-									ipsum dolor nullam.</p>
+									<p>According to the chart, besides the primary type distribution
+									, users are also inform of when a certain primary 
+									type is introduced. For example, “Flying” is firstly introduced in fifth generation.</p>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -101,7 +97,7 @@
 					<div id='input' >
 						<form id='radarform' method="post" action="javascript:radarAdd()" >
 						<input id='box' style="width:200px" type='text' list='pokemons' placeholder='Enter Pokemon' data-list-filter="^">
-						<datalist id='pokemons'>
+						<datalist id='pokemons' >
 						</datalist>
 						<button id='Add' type="button" value="Add">Add</button>
 						<button id='Clear' type="button" value="Clear">Clear</button>
@@ -111,13 +107,11 @@
 					</div>
 					<div class="content">
 						<header>
-							<h2>Interdum amet non magna accumsan</h2>
-							<p>Nunc commodo accumsan eget id nisi eu col volutpat magna</p>
+							<h2>Pokémon profiles</h2>
+							<p>Compare different Pokémon based on their stats</p>
 						</header>
-						<p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
+						<p>In addition, we created a tool to help compare different Pokémon based on their stats. This radar chart allows you to view Pokémon as profiles. In general the bigger the profile, the stronger the Pokémon. You can search for any Pokémon using the search bar and add it to your chart.</p>
+						
 					</div>
 					<a href="#three" class="goto-next scrolly">Next</a>
 				</section>
@@ -140,12 +134,10 @@
 						<!--<p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>-->
 						<p>There are more heavy Pokémon in recent generations.
 							Most of the heavy Pokémon are in generation 7 (orange bubbles).
-Most of the light Pokémon are in generation 1 (blue bubbles).
-</p>
+							Most of the light Pokémon are in generation 1 (blue bubbles).
+						</p>
 
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
+						
 					</div>
 					<a href="#four" class="goto-next scrolly">Next</a>
 				</section>
@@ -249,97 +241,7 @@ Most of the light Pokémon are in generation 1 (blue bubbles).
 			<script src="bubblepack.js"></script>
 			
 			<script src="Radar.js"></script>
-			<script>
-			var tooltip = d3.select("body").append("div").attr("class", "toolTip").attr('id','stackbartoolTip');
-var svg = d3.select("#stackbar"),
-    margin = {top: 20, right: 80, bottom: 30, left: 40},
-    width = +svg.attr("width") - margin.left - margin.right,
-    height = +svg.attr("height") - margin.top - margin.bottom,
-    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var x = d3.scaleBand()
-    .rangeRound([0, width])
-    .padding(0.1)
-    .align(0.1);
-
-var y = d3.scaleLinear()
-    .rangeRound([height, 0]);
-
-var z = d3.scaleOrdinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-
-var colortogen = {"#98abc5":'1', "#8a89a6":'2', "#7b6888":'3', "#6b486b":'4', "#a05d56":'5', "#d0743c":'6', "#ff8c00":'7'}
-
-var stack = d3.stack()
-    .offset(d3.stackOffsetExpand);
-
-d3.csv("norStackData.csv", type, function(error, data) {
-  if (error) throw error;
-
-  data.sort(function(a, b) { return a[data.columns[1]] / a.total - b[data.columns[1]] / b.total; });
-
-  x.domain(data.map(function(d) { return d.type; }));
-  z.domain(data.columns.slice(1));
-
-  var serie = g.selectAll(".serie")
-    .data(stack.keys(data.columns.slice(1))(data))
-    .enter().append("g")
-      .attr("class", "serie")
-      .attr("fill", function(d) { return z(d.key); });
-
-  var tooltip = d3.select("body").append("div").attr("class", "StacktoolTip").attr("style", "z-index: 30");
-	  
-  serie.selectAll("rect")
-    .data(function(d) { return d; })
-    .enter().append("rect")
-      .attr("x", function(d) { return x(d.data.type); })
-      .attr("y", function(d) { return y(d[1]); })
-      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-      .attr("width", x.bandwidth())
-	  .on("mouseover", function(d,i) {
-                  tooltip
-                        .style("left", d3.event.pageX - 95 + "px")
-                        .style("top", d3.event.pageY - 90 + "px")
-                        .style("display", "inline-block")
-                        .html("<font>"+"Generation: " + colortogen[this.parentNode.getAttribute('fill')] + "<br>Type: "+d.data.type+"<br>"+"Number of Pokemon: "+ Math.round((d[1] - d[0])*d.data.total) + "</font>" );
-              }) 
-      .on("mouseout", function(d) {
-                  tooltip.style("display", "none");});
-
-  g.append("g")
-      .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + (1.5*height) + ")")
-      .call(d3.axisBottom(x))
-      .selectAll("text").style('font-size',10);
-
-  g.append("g")
-      .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y).ticks(10, "%"))
-      .selectAll("text").style('font-size',12);
-
-  var legend = serie.append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d) { var d = d[d.length - 1]; return "translate(" + (x(d.data.type) + x.bandwidth()) + "," + ((y(d[0]) + y(d[1])) / 2) + ")"; });
-
-  legend.append("line")
-      .attr("x1", -6)
-      .attr("x2", 6)
-      .attr("stroke", "#000");
-
-  legend.append("text")
-      .attr("x", 9)
-      .attr("dy", "0.35em")
-      .attr("fill", "#000")
-      .style("font", "10px sans-serif")
-      .text(function(d) { return 'Generation ' + d.key.split('gen')[1]; });
-});
-
-function type(d, i, columns) {
-  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
-  d.total = t;
-  return d;
-}
-			</script>
+			<script src="stackbar.js"></script>
 			
 			
 	</body>

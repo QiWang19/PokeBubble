@@ -49,21 +49,22 @@ d3.csv("norStackData.csv", type, function(error, data) {
                         .style("left", d3.event.pageX - 95 + "px")
                         .style("top", d3.event.pageY - 90 + "px")
                         .style("display", "inline-block")
-                        .html("Generation: " + colortogen[this.parentNode.getAttribute('fill')] + "<br>Type: "+d.data.type+"<br>"+"Number of Pokemon: "+ Math.round((d[1] - d[0])*d.data.total));
+						.attr("fill", "black")
+                        .html("<font>"+"Generation: " + colortogen[this.parentNode.getAttribute('fill')] + "<br>Type: "+d.data.type+"<br>"+"Number of Pokemon: "+ Math.round((d[1] - d[0])*d.data.total) + "</font>" );
               }) 
       .on("mouseout", function(d) {
                   tooltip.style("display", "none");});
 
   g.append("g")
       .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + (1.5*height) + ")")
+      .attr("transform", "translate(0," + (1*height) + ")")
       .call(d3.axisBottom(x))
-      .selectAll("text").style('font-size',10);
+      .selectAll("text").attr("fill", "white").style('font-size',10);
 
   g.append("g")
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y).ticks(10, "%"))
-      .selectAll("text").style('font-size',12);
+      .selectAll("text").attr("fill", "white").style('font-size',12);
 
   var legend = serie.append("g")
       .attr("class", "legend")
@@ -72,12 +73,12 @@ d3.csv("norStackData.csv", type, function(error, data) {
   legend.append("line")
       .attr("x1", -6)
       .attr("x2", 6)
-      .attr("stroke", "#000");
+      .attr("stroke", "white");
 
   legend.append("text")
       .attr("x", 9)
       .attr("dy", "0.35em")
-      .attr("fill", "#000")
+      .attr("fill", "white")
       .style("font", "10px sans-serif")
       .text(function(d) { return 'Generation ' + d.key.split('gen')[1]; });
 });
